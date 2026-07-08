@@ -1,20 +1,14 @@
-# Assignment: Regression
+# M5 Choice Assignment: Regression
 
 ## Overview
 
-This is a choice programming assignment for SEIS-631: Data Preparation and Analysis.
-This assignment begins with you requesting data for a specific make/model and locations using this [Google Form](https://docs.google.com/forms/d/e/1FAIpQLSdQQMShcp2OaFkdOclqkJN5hmWjWsowEte62WrglmW1S61Vkw/viewform?usp=header).
+This is a choice programming assignment for SEIS-631: Data Preparation and Analysis. This assignment begins with you requesting data for a specific make/model and locations using the car-listings request form linked on Canvas.
 
 You will apply the regression model from class to a vehicle of your choosing and use it to find listings that are priced unusually well — or unusually poorly — relative to comparable vehicles.
-
-
-
 
 ### What does successful work look like?
 
 A strong submission applies the full regression workflow end-to-end: cleaning and filtering the data thoughtfully, fitting the OLS model correctly, and — most importantly — interpreting the results in plain English. The written responses to the `Q:` questions are the heart of this assignment. Code that runs without errors but has blank or superficial answers will not earn full marks. Aim for responses that connect the numbers to real-world meaning.
-
----
 
 ## Learning Objectives
 
@@ -27,11 +21,9 @@ By the end of this assignment you should be able to:
 - Use model residuals to identify listings that are priced unusually high or low relative to model predictions
 - Reflect critically on what a model captures and what it leaves out
 
----
-
 ## Data
 
-You will request data using the link above. This dataset will arrive in a zip file and be tab-delimited. It will match the format of the car listings dataset we've been using in class. **Do not commit the data file to Git.**
+You will request data using the car-listings request form linked on Canvas. This dataset will arrive in a zip file and be tab-delimited. It will match the format of the car listings dataset we've been using in class.
 
 The dataset contains car listings scraped from Craigslist. See the Assignment 1 README for full column documentation. The columns most relevant to this assignment are:
 
@@ -46,119 +38,120 @@ The dataset contains car listings scraped from Craigslist. See the Assignment 1 
 | `odometer`   | Reported odometer reading (miles)                        |
 | `time_posted`| Date and time the listing was posted                     |
 
----
+**Never commit data files to Git.** The `.gitignore` is set up to exclude them, but don't fight it — no data in the repo. Here is a [Reddit thread](https://www.reddit.com/r/mlops/comments/13s716f/give_me_one_good_reason_why_i_shouldnt_keep_my/) that describes some of the reasons not to commit your data.
 
-## Instructions
+## Tasks
 
-Work through the notebook (`Regression.ipynb`) from top to bottom. The notebook is divided into five parts:
+Work through the notebook (`Regression.ipynb`) from top to bottom. Questions to answer appear in cells marked `Q:` — answer them in Markdown. The notebook is divided into five parts:
 
 ### Part 1: Data Preparation
+
 Run the provided cleaning pipeline, then handle missing and extreme values in the key columns. Filter to clean- or lien-title listings and engineer three features: `age` (vehicle age at time of listing), `log_odometer` (natural log of odometer), and `in_focal_location` (indicator for your chosen city). Answer the written questions about your filtering choices.
 
 ### Part 2: Exploring Your Data
+
 Before fitting anything, look at the variables individually and together. Create a histogram of price and compute summary statistics. Create scatterplots of price vs. raw odometer, price vs. log-odometer, and price vs. age. Answer the written questions about what you observe.
 
 ### Part 3: Fitting the Model
+
 Fit the OLS model from the in-class exercise using `smf.ols()`. Examine the summary output and interpret the key coefficients — especially `car_age` and `log_odometer` — in plain English using realistic dollar and mileage values. Discuss R-squared and what it tells you about model fit.
 
 ### Part 4: Finding Good and Bad Deals
+
 Compute predicted prices and residuals for every listing. Plot the residual distribution. Flag listings more than 2 standard deviations below the prediction as potential good deals, and listings more than 2 standard deviations above as potentially overpriced. Examine specific listings and consider what the model might be missing.
 
-### Part 5: Reflection
-Answer the reflection questions about your prior experience with regression, remaining questions you have, model limitations, and whether you'd actually trust this model if you were car shopping.
+## Reflection
 
----
+End your notebook with a short written reflection (a few paragraphs, Markdown). Address:
 
-## Deliverables
+- What was confusing, and how did you resolve it?
+- Where did AI help you most? Where did it mislead you or produce something you had to fix?
+- What do you understand now that you didn't before starting?
+- How long did it take? Any unresolved questions?
 
-When you have completed your work, **follow these steps carefully before submitting**. These will be largely the same on every assignment.
+## Deliverables & Submission
 
-### 1. Clear All Outputs
-Before your final submission, you need to clear all cell outputs to ensure a clean starting state:
-- In the notebook menu, select **Kernel → Restart & Clear Output** (or **Kernel → Restart Kernel and Clear All Outputs**)
-- This removes all previously generated output and resets the kernel
+When you have completed your work, **follow these steps carefully before submitting**. They're the same on every assignment.
 
-### 2. Run Everything from Top to Bottom
-After clearing outputs, verify that your notebook runs correctly from start to finish:
-- Select **Run → Run All Cells** (or **Cell → Run All**)
-- Watch the cells execute in order
-- Ensure there are no errors
-- Check that all outputs appear as expected. In particular, **read** your Markdown cells and ensure they look exactly the way you want, just as you would with an essay assignment.
+### 1. Restart & Clear Outputs
 
-**Why is this important?** This process ensures that:
-- Your code doesn't depend on cells being run in a specific order that differs from top-to-bottom
-- You haven't accidentally deleted a cell that defines a variable used later
-- Someone else (including me, when grading) can view your notebook and see the results. If needed, I can also run the notebook and should see the same results.
+In the notebook menu, select **Kernel → Restart & Clear Output**. This removes all generated output and resets the kernel.
 
-### 3. Comment Out Large Outputs (Optional but Recommended)
-If any cells print very large DataFrames or long outputs, consider commenting them out or removing the print statements. This keeps your notebook file size manageable and makes it easier to review.
+### 2. Run everything top to bottom
 
-### 4. Commit and Push to GitHub
-Once you've verified everything runs correctly:
+Select **Run → Run All Cells**. Scroll through the notebook, looking for errors, checking that outputs appear as expected, and **reading your Markdown cells**. These cells should be polished and complete, just as you'd review an essay before submitting it. This step proves your notebook doesn't depend on out-of-order execution and that I'll see the same results you do.
+
+### 3. Commit and push to GitHub
+
+You can commit and push using the GUI tools in VS Code or at the command line. 
+
 ```bash
 git add "Regression.ipynb"
 git commit -m "Ready for review"
 git push
 ```
-You can also commit by going to the Source Control menu (**View → Source Control** or click on the icon on the left) and using the GUI to do your add-commit-push cycle. Instructions for this are in Module 0 on Canvas.
 
-**Final checklist before submitting:**
+We'll typically use the VS Code Source Control GUI — instructions are in Module 0 on Canvas.
+
+**Final checklist:**
+
 - [ ] Kernel restarted and all outputs cleared
 - [ ] All cells run successfully from top to bottom
-- [ ] All `Q:` questions answered in Markdown cells
-- [ ] Large debug outputs commented out or removed
+- [ ] All `Q:` cells answered in Markdown
+- [ ] Reflection written
 - [ ] Changes committed and pushed to GitHub
 
----
+## Working with AI
 
-## AI Policy
+AI coding tools are allowed and expected in this course, from day one. You are not graded on hand-writing pandas; you are graded on asking the right statistical questions, verifying that the code does what you think it does, and interpreting results honestly.
 
-You may use AI to *ask questions* if you are stuck or need clarification, and for code completion. Do not use AI to write whole blocks of code and don't copy and paste from a web UI. The purpose of these restrictions is to ensure that you are in the driver's seat on the conceptual pieces of the assignment — particularly the written interpretation questions, which require your own thinking.
+Two rules of the road:
 
----
+1. **You own every claim in your notebook.** "The AI wrote it" is not a defense of a wrong number, a mislabeled axis, or an overstated conclusion.
+2. **Point your AI at `AGENTS.md`** in this repository. Agentic tools (Copilot agent mode, Cursor, Claude Code) will read it automatically; if you're using a chat tool, paste it in at the start. It tells your AI how to work with you so you actually learn something — small steps, checkpoints, no one-shot solutions.
+
+The reflection asks where AI helped and where it misled you. Honest answers there are part of the work.
 
 ## Evaluation Criteria
 
-This rubric describes different levels of understanding and skill demonstration. Use it for self-assessment and to understand feedback on your work. Your work will be evaluated more holistically than this rubric implies, but it gives you a sense of what I'm looking for at each facet.
+This rubric describes levels of understanding and skill demonstration. Use it for self-assessment and to understand feedback. Your work is evaluated holistically — this shows what I'm looking for at each facet.
 
 ### Code Functionality
 
-**Exemplary**: All code executes flawlessly from top to bottom. All required tasks are completed correctly, including data preparation, feature engineering, model fitting, and residual analysis. The workflow demonstrates clear understanding of the assignment requirements.
+**Exemplary**: The notebook executes flawlessly top to bottom. All required tasks are completed correctly, and the notebook shows evidence that you *verified* the code does what you claim — sanity checks, spot checks against raw data, or commentary that demonstrates you know what each step accomplished.
 
-**Proficient**: Code executes with only minor issues that don't prevent completion of major tasks. All required tasks are attempted and most are completed correctly. Any errors are minor and don't indicate fundamental misunderstandings.
+**Proficient**: Executes with only minor issues that don't prevent completion of major tasks. Most tasks correct; errors are minor and don't indicate fundamental misunderstanding.
 
-**Developing**: Code has some execution errors or several tasks are incomplete. Core functionality is present but needs refinement. Some required transformations or visualizations are missing or incorrect.
+**Developing**: Some execution errors or incomplete tasks. Core functionality present but unverified — code appears pasted-and-hoped rather than checked.
 
-**Beginning**: Code does not run or has major execution errors. Multiple required tasks are missing or fundamentally incorrect. Demonstrates need for significant additional practice with core concepts.
+**Beginning**: Does not run or has major errors. Multiple required tasks missing or fundamentally incorrect.
 
----
+### Analysis & Interpretation
 
-### Data Analysis & Interpretation
+**Exemplary**: Every analytical question is answered correctly with a clear, plain-English explanation supported by the data. Claims are disciplined — they say what the data support, no more. Uncertainty is acknowledged where it exists. Visualizations directly support conclusions.
 
-**Exemplary**: All analytical questions are answered correctly with clear, data-supported explanations. Demonstrates strong ability to extract meaning from regression output. Coefficient interpretations are specific (using actual dollar and mileage values) and written for a general audience. The good/bad deal analysis is thoughtful and considers model limitations.
+**Proficient**: Most questions answered correctly; minor calculation or interpretation errors, but claims stay tethered to evidence. Visualizations present but less clearly tied to the analysis.
 
-**Proficient**: Most questions are answered correctly. Minor errors in interpretation may be present but overall understanding is evident. Answers are supported by the data. Coefficient interpretations may be technically correct but lack real-world grounding.
+**Developing**: Some answers incorrect or incomplete; some claims overreach what the data support. Visualizations rudimentary or absent.
 
-**Developing**: Some questions are answered incorrectly or incompletely. Demonstrates partial understanding but needs improvement in accuracy or depth. Interpretations may restate the formula rather than translate it into plain language.
-
-**Beginning**: Many questions are unanswered or incorrect. Limited evidence of analytical thinking or ability to interpret regression output. Needs substantial work on connecting model output to meaningful insights.
-
----
+**Beginning**: Many questions unanswered or incorrect. Conclusions disconnected from output. Limited evidence of analytical thinking.
 
 ### Finished Product
 
-**Exemplary**: Code is clean, well-organized, and uses best practices. Variable names are meaningful and consistent. Pandas and statsmodels methods are used efficiently and appropriately. Markdown cells are used for commentary and to divide up the workflow. The notebook is easy to read and follow, with proper markdown formatting and logical flow.
+**Exemplary**: The notebook reads like a document, not a scratchpad. Markdown cells organize the workflow and carry commentary; variable names are meaningful; formatting is clean; a reader can follow the analysis without you in the room.
 
-**Proficient**: Code is generally clean and readable. Minor inconsistencies in style or efficiency may exist but don't impede understanding. Notebook organization is logical with adequate formatting.
+**Proficient**: Generally clean and readable; minor inconsistencies that don't impede understanding.
 
-**Developing**: Code works but has readability issues such as unclear variable names, inconsistent formatting, or inefficient approaches. Notebook organization could be improved.
+**Developing**: Works, but readability suffers — unclear names, weak organization, sparse commentary.
 
-**Beginning**: Code is difficult to read or understand. Poor variable naming, lack of organization, or highly inefficient methods. Minimal attention to presentation or professionalism.
-
----
+**Beginning**: Difficult to read or follow. Minimal attention to presentation.
 
 ### Reflection
 
-In the reflection section, I am looking for thoughtful engagement with the learning process. I seek to learn about your challenges, any insights developed during the assignment, and remaining questions.
+**Exemplary**: Specific and honest. Names actual points of confusion and how they were resolved; identifies concretely where AI helped and where it misled; articulates something learned. Reads like it could only have been written by someone who did *this* assignment.
 
+**Proficient**: Addresses the prompts with some specificity; engagement is evident but some answers stay general.
 
+**Developing**: Generic — could have been written before starting the assignment. Little evidence of engagement with the actual experience.
+
+**Beginning**: Missing or perfunctory.

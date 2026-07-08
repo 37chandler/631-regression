@@ -1,0 +1,1 @@
+Add enough descriptive stats that I can tell what their pull parameters were. This goes for the other "request your own data" one.
