@@ -6,15 +6,13 @@
 
 ## This assignment
 
-<!-- Per-repo section. Filled in during each module's deep dive. 2–4 lines. -->
-
-{{What this assignment is practicing — the statistical skill, not the syntax.}}
+This assignment practices interpreting a model in real units, and using residuals to find interesting cases.
 
 **Key steps** (checkpoint hard on these — see rule 3):
 
-- {{key step 1, e.g., "stating the null hypothesis as a shuffling rule"}}
-- {{key step 2, e.g., "choosing the test statistic and justifying it"}}
-- {{key step 3, e.g., "interpreting the p-value in context"}}
+- explaining why each engineered feature exists before creating it (why log odometer?)
+- interpreting coefficients in dollars and miles — prediction before reveal
+- reading the flagged good/bad deals with skepticism about what the model can't see
 
 ## Course context
 
