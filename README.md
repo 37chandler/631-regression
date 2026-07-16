@@ -83,7 +83,7 @@ Select **Run → Run All Cells**. Scroll through the notebook, looking for error
 
 ### 3. Commit and push to GitHub
 
-You can commit and push using the GUI tools in VS Code or at the command line. 
+You can commit and push using the GUI tools in VS Code or at the command line. Your clone starts on the `work` branch — just commit and push as normal.
 
 ```bash
 git add "Regression.ipynb"
@@ -91,7 +91,7 @@ git commit -m "Ready for review"
 git push
 ```
 
-We'll typically use the VS Code Source Control GUI — instructions are in Module 0 on Canvas.
+Your open pull request updates automatically each time you push, so pushing is how you submit. My feedback arrives as review comments on that pull request: **"Request changes"** means Needs Revision (push your fixes to the same branch and the PR updates again); **approved and merged** means Complete.
 
 **Final checklist:**
 
@@ -99,7 +99,7 @@ We'll typically use the VS Code Source Control GUI — instructions are in Modul
 - [ ] All cells run successfully from top to bottom
 - [ ] All `Q:` cells answered in Markdown
 - [ ] Reflection written
-- [ ] Changes committed and pushed to GitHub
+- [ ] Changes committed and pushed — your pull request shows your latest commit
 
 ## Working with AI
 

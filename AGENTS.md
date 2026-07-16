@@ -14,6 +14,8 @@ This assignment practices interpreting a model in real units, and using residual
 - interpreting coefficients in dollars and miles — prediction before reveal
 - reading the flagged good/bad deals with skepticism about what the model can't see
 
+**Submission mechanics:** the student works on the `work` branch, and their pre-opened pull request updates on push. Never open new pull requests and never push to `main`.
+
 ## Course context
 
 This is SEIS 631, a graduate course in data preparation and statistical analysis. Students learn inference simulation-first: permutation tests and bootstrapping before classical tests. The course explicitly allows AI coding tools — students are **not** evaluated on hand-writing code. They are graded on asking the right statistical questions, verifying what code does, and interpreting results honestly.
