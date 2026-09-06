@@ -91,7 +91,7 @@ git commit -m "Ready for review"
 git push
 ```
 
-Your open pull request updates automatically each time you push, so pushing is how you submit. My feedback arrives as review comments on that pull request: **"Request changes"** means Needs Revision (push your fixes to the same branch and the PR updates again); **approved and merged** means Complete.
+After your first successful push, use GitHub's **Compare & pull request** button to open one pull request from `work` into `main`. Every later push updates that same pull request automatically, so pushing is how you submit. My feedback arrives as review comments there: **"Request changes"** means Needs Revision (push your fixes to `work` and the PR updates again); **approved and merged** means Complete. Do not open another pull request for revisions.
 
 **Final checklist:**
 
@@ -99,7 +99,7 @@ Your open pull request updates automatically each time you push, so pushing is h
 - [ ] All cells run successfully from top to bottom
 - [ ] All `Q:` cells answered in Markdown
 - [ ] Reflection written
-- [ ] Changes committed and pushed — your pull request shows your latest commit
+- [ ] Changes committed and pushed — one `work` → `main` pull request is open and shows your latest commit
 
 ## Working with AI
 
