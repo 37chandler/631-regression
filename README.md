@@ -23,7 +23,7 @@ By the end of this assignment you should be able to:
 
 ## Data
 
-You will request data using the car-listings request form linked on Canvas. This dataset will arrive in a zip file and be tab-delimited. It will match the format of the car listings dataset we've been using in class.
+You will request data using the car-listings request form linked on Canvas. Request your chosen make/model in a focal location and at least one other location so the location indicator can compare groups. The dataset will arrive in a zip file and be tab-delimited. It will match the format of the car listings dataset we've been using in class.
 
 The dataset contains car listings scraped from Craigslist. See the Assignment 1 README for full column documentation. The columns most relevant to this assignment are:
 
@@ -46,7 +46,7 @@ Work through the notebook (`Regression.ipynb`) from top to bottom. Questions to 
 
 ### Part 1: Data Preparation
 
-Run the provided cleaning pipeline, then handle missing and extreme values in the key columns. Filter to clean- or lien-title listings and engineer three features: `age` (vehicle age at time of listing), `log_odometer` (natural log of odometer), and `in_focal_location` (indicator for your chosen city). Answer the written questions about your filtering choices.
+Run the provided cleaning pipeline, then handle missing and extreme values in the key columns. Filter to clean- or lien-title listings and engineer three features: `car_age` (vehicle age at time of listing), `log_odometer` (natural log of odometer), and `in_focal_location` (indicator for your chosen city). Answer the written questions about your filtering choices.
 
 ### Part 2: Exploring Your Data
 
@@ -65,8 +65,8 @@ Compute predicted prices and residuals for every listing. Plot the residual dist
 End your notebook with a short written reflection (a few paragraphs, Markdown). Address:
 
 - What was confusing, and how did you resolve it?
-- Where did AI help you most? Where did it mislead you or produce something you had to fix?
-- What do you understand now that you didn't before starting?
+- Where did AI help you most? Describe one suggestion you had to verify, correct, narrow, or reject, and how you checked it. If you did not use AI, explain how you found help and verified your work instead.
+- What can you now explain or do without AI that you couldn't before starting?
 - How long did it take? Any unresolved questions?
 
 ## Deliverables & Submission
@@ -110,7 +110,7 @@ Two rules of the road:
 1. **You own every claim in your notebook.** "The AI wrote it" is not a defense of a wrong number, a mislabeled axis, or an overstated conclusion.
 2. **Point your AI at `AGENTS.md`** in this repository. Agentic tools (Copilot agent mode, Cursor, Claude Code) will read it automatically; if you're using a chat tool, paste it in at the start. It tells your AI how to work with you so you actually learn something — small steps, checkpoints, no one-shot solutions.
 
-The reflection asks where AI helped and where it misled you. Honest answers there are part of the work.
+For each substantial step, use a simple loop: **predict** a coefficient's sign or a plausible price, **run** one focused step, **check** inputs, selected predictions, and residual arithmetic against the data, and **explain** the result in dollars and miles. The reflection asks where AI helped and where a suggestion required verification or revision. Honest, specific answers there are part of the work.
 
 ## Evaluation Criteria
 
@@ -148,7 +148,7 @@ This rubric describes levels of understanding and skill demonstration. Use it fo
 
 ### Reflection
 
-**Exemplary**: Specific and honest. Names actual points of confusion and how they were resolved; identifies concretely where AI helped and where it misled; articulates something learned. Reads like it could only have been written by someone who did *this* assignment.
+**Exemplary**: Specific and honest. Names actual points of confusion and how they were resolved; identifies concretely where AI helped and where a suggestion required verification, correction, narrowing, or rejection; articulates something learned. Reads like it could only have been written by someone who did *this* assignment.
 
 **Proficient**: Addresses the prompts with some specificity; engagement is evident but some answers stay general.
 
